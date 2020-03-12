@@ -14,10 +14,11 @@ def trim(docstring):
         return ''
     # Convert tabs to spaces (following the normal Python rules)
     # and split into a list of lines:
+    docstring = docstring.encode('utf-8')
     lines = six.u(docstring).expandtabs().splitlines()
     lines = [line.strip() for line in lines]
     res = six.u('\n').join(lines)
-    return res
+    return res.encode('latin-1').decode('utf-8')
 
 
 def body_schema_transformer(schema, args):

@@ -655,7 +655,7 @@ class CorniceSwagger(object):
                 view_ = getattr(ob, view.lower())
                 docstring = trim(view_.__doc__)
         else:
-            docstring = str(trim(view.__doc__))
+            docstring = trim(view.__doc__).encode('utf-8')
 
         if docstring and self.summary_docstrings:
             op['summary'] = docstring
